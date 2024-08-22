@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&family=DM+Serif+Text:ital@0;1&display=swap');
+.bungee-tint-regular {
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.dm-serif-text-regular {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-serif-text-regular-italic {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+    font-family: "EF_jejudoldam";
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-EF@1.0/EF_jejudoldam.woff2') format('woff2');
+}
+
+.jejudoldam {
+    font-family: "EF_jejudoldam", sans-serif;
+}
+
+@font-face {
+    font-family: "JejuDoldam";
+    src: url("../assets/fonts/jejudoldam.woff2") format("woff2"),
+      url("../assets/fonts/jejudoldam.woff") format("woff");
+}
+
+.doldam {
+    font-family: "JejuDoldam";
+}
