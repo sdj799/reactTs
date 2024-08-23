@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Button from "./Button";
 import CheckBox from "./CheckBox";
 import Input from "./Input";
@@ -6,6 +6,7 @@ import useCheckbox from "../../hooks/useCheckbox";
 import useReset from "../../hooks/useReset";
 
 const LoginComponent = () => {
+  const els = useRef<HTMLInputElement>(null);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -16,6 +17,7 @@ const LoginComponent = () => {
   const resetAll = useReset(resetChecked);
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    els.current?.focus();
     if (!user.email || !user.password || !checked) {
       alert("Please fill all the fields.");
       return;
@@ -48,6 +50,7 @@ const LoginComponent = () => {
                 value={user.name}
                 name="name"
                 onChange={onChangeHandler}
+                ref={els}
               />
             )}
             <Input
