@@ -1,13 +1,11 @@
+import ColorBox from "./components/ColorBox";
+import Lamp from "./components/Lamp";
+import LoginComponent from "./components/html/LoginComponent";
+
 const App = () => {
-  let num = 0;
-  const onClickHandler = () => {
-    num = 20;
-    console.log(num);
-  };
   return (
     <>
-      <h1>Num: {num}</h1>
-      <button onClick={onClickHandler}>숫자변경</button>
+      <LoginComponent />
     </>
   );
 };
