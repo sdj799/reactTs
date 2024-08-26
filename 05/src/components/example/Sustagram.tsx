@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { CgDarkMode } from "react-icons/cg";
 import { RxReset } from "react-icons/rx";
 
 const Sustagram = () => {
+  const [darkMode, setDarkMode] = useState(false);
   const picture = [
     "https://cdn.pixabay.com/photo/2013/08/26/09/40/silhouette-175970_1280.jpg",
     "https://cdn.pixabay.com/photo/2015/11/25/09/42/rocks-1061540_1280.jpg",
@@ -32,13 +34,24 @@ const Sustagram = () => {
       alert("되돌릴 사진이 없습니다.");
     }
   };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.className = "dark";
+    } else {
+      document.body.className = "";
+    }
+  }, [darkMode]);
   return (
     <div className="w-full max-w-4xl mx-auto py-6 px-4">
       <header className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">SUSTAGRAM</h1>
         <div className="flex items-center gap-4">
-          <button className="w-6 h-6" onClick={rxResetHandler}>
-            <img src="/sun.svg" alt="" />
+          <button
+            className="w-6 h-6"
+            onClick={() => setDarkMode((darkMode) => !darkMode)}
+          >
+            <img src={darkMode ? "/moon.svg" : "/sun.svg"} alt="" />
           </button>
           <button className="w-4 h-4" onClick={rxResetHandler}>
             <RxReset />

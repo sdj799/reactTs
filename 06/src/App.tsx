@@ -1,9 +1,9 @@
-import Basket from "./components/example/basket/Basket";
+import Todo from "./components/todo-basic/Todo";
 
 const App = () => {
   return (
     <>
-      <Basket />
+      <Todo />
     </>
   );
 };
