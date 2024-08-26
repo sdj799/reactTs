@@ -1,7 +1,10 @@
+import Sustagram from "./components/example/Sustagram";
+import UseEffect from "./components/react-hooks/useEffect/UseEffect";
+
 const App = () => {
   return (
     <>
-      <h1>App Component</h1>
+      <Sustagram />
     </>
   );
 };
