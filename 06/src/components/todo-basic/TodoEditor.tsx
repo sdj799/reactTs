@@ -1,14 +1,18 @@
-import { useState } from "react";
+import React, { useContext, useState } from "react";
 import Input from "../html/Input";
 import Button from "../html/Button";
+import { TodoContextFn } from "../../context/TodoProvider";
 
-const TodoEditor = ({ addTodo }: { addTodo: (todo: string) => void }) => {
+const TodoEditor = () => {
   const [todo, setTodo] = useState("");
+  const { addTodo } = useContext(TodoContextFn)!;
   const onsubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addTodo(todo);
     setTodo("");
   };
+  console.log("editor rendering");
+
   return (
     <>
       <form
@@ -34,4 +38,4 @@ const TodoEditor = ({ addTodo }: { addTodo: (todo: string) => void }) => {
     </>
   );
 };
-export default TodoEditor;
+export default React.memo(TodoEditor);

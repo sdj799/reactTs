@@ -1,24 +1,15 @@
-import { TList } from "../../types/todo";
+import { useContext } from "react";
 import TodoListItem from "./TodoListItem";
+import { TodoContext } from "../../context/TodoProvider";
 
-const TodoList = ({
-  todoList,
-  deleteHandler,
-  toggleTodo,
-}: {
-  todoList: TList[];
-  deleteHandler: (index: number) => void;
-  toggleTodo: (id: number) => void;
-}) => {
+const TodoList = () => {
+  const { todoList } = useContext(TodoContext)!;
+
   return (
     <>
       <ul className="flex flex-col gap-4 mt-4 max-h-[284px] overflow-scroll">
         {todoList.map((todo) => (
-          <TodoListItem
-            todo={todo}
-            toggleTodo={toggleTodo}
-            deleteHandler={deleteHandler}
-          />
+          <TodoListItem key={todo.id} todo={todo} />
         ))}
       </ul>
     </>
