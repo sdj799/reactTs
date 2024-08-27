@@ -14,7 +14,7 @@ const UseTransition = () => {
       for (let j = 0; j < 10000; j++) {
         i.push(j);
       }
-      setDummy((d) => [...d, ...i]);
+      setDummy(i);
     });
   };
   return (
