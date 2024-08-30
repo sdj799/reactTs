@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
-export const useFetch = (
+
+type FetchOtions = {
+  method?: string;
+  headers?: HeadersInit;
+  body?: BodyInit | null;
+};
+
+export const useFetch = <T>(
   initailUrl: string,
-  initialData: any,
-  initialOptions = {
-    method: "GET",
-  }
+  initialData: T,
+  initialOptions: FetchOtions = { method: "GET" }
 ) => {
   const [data, setData] = useState(initialData);
   const [isError, setIsError] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false); // 로딩이 아니다
   useEffect(() => {
     const controller = new AbortController();
@@ -17,6 +22,7 @@ export const useFetch = (
       try {
         setIsLoading(true);
         setIsError(false);
+        setError(null);
         const response = await fetch(initailUrl, {
           ...initialOptions,
           signal,

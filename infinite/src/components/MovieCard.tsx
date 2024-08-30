@@ -1,11 +1,16 @@
 import { star } from "../assets/assets";
-const MovieCard = ({ movie }: { movie: { [key: string]: string } }) => {
-  const { title, vote_average, vote_count } = movie;
+import { MovieType } from "../types/movie";
+const MovieCard = ({
+  title,
+  poster_path,
+  vote_average,
+  release_date,
+}: MovieType) => {
   return (
     <>
       <div>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={`image ${title}`}
           className="rounded-md w-full"
         />
@@ -22,10 +27,10 @@ const MovieCard = ({ movie }: { movie: { [key: string]: string } }) => {
               className="object-contain"
             />
             <span className="text-yellow-500">
-              {Math.floor(parseFloat(vote_average) * 10) / 10}
+              {Math.floor(vote_average * 10) / 10}
             </span>
           </div>
-          <span className="text-yellow-500 font-bold">{vote_count}</span>
+          <span className="text-yellow-500 font-bold">{release_date}</span>
         </div>
       </div>
     </>
